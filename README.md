@@ -1,4 +1,4 @@
-# Migrating WhatsApp messages from android to iOS
+# Migrating WhatsApp messages from android to iOS 
 
 Info below is current as of December 2021. Please read the whole guide before performing any steps.
 
