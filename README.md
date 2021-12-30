@@ -2,7 +2,7 @@
 
 Info below is current as of December 2021. Please read the whole guide before performing any steps.
 
-### Introduction
+## Introduction
 
 This is a guide to migrating whatsapp messages from Android to iOS using open source software for free.
 
