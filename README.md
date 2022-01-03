@@ -60,6 +60,7 @@ adb pull /data/data/com.WhatsApp/databases/wa.db
 3. [download the WhatsApp APK (any version)](https://www.apkmirror.com/apk/WhatsApp-inc/WhatsApp/)
 4. In android studio - Tools > AVD Manager
 5. Create an android virtual device (AVD)
+  - Select an image with Google APIs, but without Google Play to be able to access as `root`
 6. Start the AVD
 7. Install WhatsApp APK (drag and drop the APK file onto the virtual device) 
 8. install and activate WhatsApp on the AVD
