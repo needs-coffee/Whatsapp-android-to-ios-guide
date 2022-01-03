@@ -166,11 +166,11 @@ Also was inspired by these guides:
 I had also tried these tools but could not get them to work - your milage may vary:
 - https://github.com/YuvrajRaghuvanshiS/WhatsApp-Key-Database-Extractor
 
-## useful paths
-- private android whatsapp data - ` data/data/com.whatsapp/files/key`
-- android whatsapp data - `/sdcard/Android/media/com.whatsapp/`
-- windows iTunes backup path - ` %APPDATA%\Apple Computer\MobileSync\Backup`
-- mac apple configurator 2 backup path - `~/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Caches/Assets/TemporaryItems/MobileApps/`
+## Useful Paths
+- private Android WhatsApp data - ` data/data/com.whatsapp/files/key`
+- Android WhatsApp data - `/sdcard/Android/media/com.whatsapp/`
+- Windows iTunes backup path - ` %APPDATA%\Apple Computer\MobileSync\Backup`
+- macOS Apple Configurator 2 backup path - `~/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Caches/Assets/TemporaryItems/MobileApps/`
 
 ## Disclaimer + License
 All of the above steps are at your own risk. This is a fiddly process and took me many attempts. Make sure you make backups along the way, i take no responsibility if you lose data performing any of these steps.
