@@ -32,7 +32,7 @@ The steps below go through getting the decrypted message database from an androi
 
 ## Steps
 
-#### *Step 1 - Obtain a copy of msgstore.db.crypt14 + key from the Android device*
+### *Step 1 - Obtain a copy of msgstore.db.crypt14 + key from the Android device*
 
 The message database is user accessible on android but encrypted with AES-256.
 The encryption key for WhatsApp is stored with in a protected portion on the android device. 
@@ -66,7 +66,7 @@ adb pull /data/data/com.WhatsApp/databases/wa.db
 9. Restore from the Google Drive backup, this will require signing into your Google Account on the virtual device.
 10. Once restored, connect with adb as per root instructions above and retrieve the db and key (The virtual device will have root access provided you followed step 5)
 
-#### *Step 2 - Decrypt msgstore.db.crypt14*
+### *Step 2 - Decrypt msgstore.db.crypt14*
 
 Perform from within the same directory as your msgstore.db.crypt14 and key.
 
@@ -82,7 +82,7 @@ mv wa.db original-files
 mv key original-files
 ```
 
-#### *Step 3 - Create local iPhone backup*
+### *Step 3 - Create local iPhone backup*
 
 Recent versions of iTunes on macOS don't have an option for local backup. Either install an older version of iTunes or use the Apple Configurator 2 App to backup. Backups can be created on macOS or Windows with iTunes but all further steps need to be done on macOS. 
 
@@ -98,7 +98,7 @@ export BACKUP_ID="put ID of the backup here" # use the latest ID from the list-b
 cp -R ~/Library/Application\ Support/MobileSync/Backup/$(BACKUP_ID) original-backup
 ```
 
-#### *Step 4 - Get a copy of the WhatsApp.ipa file*
+### *Step 4 - Get a copy of the WhatsApp.ipa file*
 
 You will need a copy of WhatsApp.ipa of same version you have on your device. You can get this from the internet or following [this guide](https://dev.to/tranthanhvu/how-to-download-ipa-file-from-appstore-37im) to obtain via Apple Configurator 2, the steps of which are summarised below. 
 
@@ -110,13 +110,13 @@ You will need a copy of WhatsApp.ipa of same version you have on your device. Yo
 6. Copy the ipa file from `~/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Caches/Assets/TemporaryItems/MobileApps/` to your working directory
 7. Cancel the previous prompts and close AC2
 
-#### *Step 5 - Extract the contents of WhatsApp.ipa*
+### *Step 5 - Extract the contents of WhatsApp.ipa*
 
 ```bash
 unzip ./Whatsapp.ipa -d app
 ```
 
-#### *Step 6 - Extract the message database from the iPhone backup*
+### *Step 6 - Extract the message database from the iPhone backup*
 
 The commands below extract the message files from the backup and important manifest files.
 
@@ -128,26 +128,26 @@ watoi/scripts/bedit.sh extract-blob $BACKUP_ID Manifest.db $ORIGINALS/Manifest.d
 cp $ORIGINALS/ChatStorage.sqlite ./ChatStorage.sqlite
 ```
 
-#### *Step 7 - Run the migration*
+### *Step 7 - Run the migration*
 
 ```bash
 xcodebuild -project watoi/watoi.xcodeproj -target watoi
 watoi/build/Release/watoi msgstore.db ./ChatStorage.sqlite app/Payload/WhatsApp.app/Frameworks/Core.framework/WhatsAppChat.momd
 ```
 
-#### *Step 8 - Replace the database file in the backup*
+### *Step 8 - Replace the database file in the backup*
 
 ```bash
 scripts/bedit.sh replace-chats $BACKUP_ID ./ChatStorage.sqlite
 ```
 
-#### *Step 9 - Restore from backup*
+### *Step 9 - Restore from backup*
 
 Restore the backup with iTunes/Apple Configurator 2.  
 
 > **_Note for virtual machine users:_** I had considerable issues getting my iPhone to be detected by Apple Configurator 2 when restoring the backup. Apple Configurator was stating my device was already provisioned and then not detecting the device at all after a factory restore. I created a backup using iTunes in Windows, transferred this to the VM using a shared folder. Once the backup was modified i transferred the backup to Windows again and restored with iTunes.
 
-#### *Optional step - Use whatsapp-viewer to view whatsapp messages on pc*
+### *Optional step - Use whatsapp-viewer to view whatsapp messages on pc*
 
 Browse your msgstore.db file on your pc with [whatsapp-viewer](https://github.com/andreas-mausch/whatsapp-viewer) if you need to view these at a later date or just have no success in patching the iPhone backup and just want a way to see the messages.  
 Using the wa.db file will show contact names along with the messages.
