@@ -95,7 +95,7 @@ Recent versions of iTunes on macOS don't have an option for local backup. Either
 git clone https://github.com/residentsummer/watoi
 watoi/scripts/bedit.sh list-backups
 export BACKUP_ID="put ID of the backup here" # use the latest ID from the list-backups command
-cp -R ~/Library/Application\ Support/MobileSync/Backup/$(BACKUP_ID) original-backup
+cp -R ~/Library/Application\ Support/MobileSync/Backup/${BACKUP_ID} original-backup
 ```
 
 ### *Step 4 - Get a copy of the WhatsApp.ipa file*
