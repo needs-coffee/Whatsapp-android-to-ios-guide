@@ -1,6 +1,25 @@
-# Migrating WhatsApp messages from android to iOS 
+# Migrating WhatsApp messages from Android to iOS 
 
-Info below is current as of December 2021. Please read the whole guide before performing any steps.
+## Update July 2022
+Great news!   
+There is now an [official method to migrate WhatsApp from Android to iOS.](https://faq.whatsapp.com/530788665445780/) This new guide can be found [here](https://faq.whatsapp.com/530788665445780/).
+
+This official method will be the best option for the majority of users. There are a few limitations:
+- Requires iOS >=15.5
+- Requires device to be factory reset when migrating (although so does the below guide)
+- May not be compatible with managed devices (company phones for example)
+- Use the same phone number as your old phone on your new device
+
+The below guide will stay up incase you run into issues with the official tool, but will go without updates as I do not have a second phone and phone number to keep resetting my phone to test the tools.
+
+---------------------
+---------------------
+## Disclaimer of existing guide
+
+Info below was current as of December 2021. Please read the whole guide before performing any steps.
+The exact syntax of many of the tools has changed since then and so has the format of the encrypted whatsapp files. See the github pages for each tool for the updated syntax, but the overall steps remain unchanged.
+
+As per the issues on this repo there may be some issues with backing up via an android emulator or with rooted systems where care has not been taken to hide the root status. It would appear that WhatsApp are actively trying to block these workarounds.
 
 ## Introduction
 
@@ -71,7 +90,7 @@ adb pull /data/data/com.WhatsApp/databases/wa.db
 Perform from within the same directory as your msgstore.db.crypt14 and key.
 
 ```bash
-pip install pycrypto pycryptodome
+pip install protobuf pycryptodomex
 git clone https://github.com/ElDavoo/WhatsApp-Crypt14-Decrypter
 python3 ./WhatsApp-Crypt14-Decrypter/decrypt14.py key msgstore.db.crypt14 msgstore.db   
 rm -rf WhatsApp-Crypt14-Decrypter
